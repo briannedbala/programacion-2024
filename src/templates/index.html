@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado negro</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <script src="https://kit.fontawesome.com/eb1f191a2d.js" crossorigin="anonymous"></script>    
+    <script>
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
+    <script>
+        function addToCart(productName, price) {
+            fetch('/add_to_cart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name: productName, price: price })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('Producto agregado al carrito');
+                } else {
+                    alert('Error al agregar el producto');
+                }
+            });
+        }
+        </script>
+        
+        <script>
+            function removeFromCart(productId) {
+    fetch(`/remove_from_cart/${productId}`, {
+        method: 'POST'
+    })
+    .then(response => {
+        if (response.ok) {
+            location.reload(); // Recargar la página para reflejar cambios
+        } else {
+            console.error('Error al eliminar el producto');
+        }
+    });
+}
+
+        </script>
+        
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <nav>
+                <ul class="nav-links">
+                    <li class="title">
+                        <a href="">Mercado negro</a>
+                    </li>
+                    <li class="icon-elem">
+                        <a href="/login" class="icon">
+                            <i class="fa-solid fa-user"></i>                       
+                        </a>
+                        <a href="/cart" class="icon">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>    
+        </div>
+    </header>
+
+    <div class="tira-header">
+        <div class="">
+            <section>
+                <ul>
+                    <li>
+                        <a href="#Categorias">Categorias</a>
+                        <a href="#Ofertas">Ofertas</a>
+                        <a href="#Ayuda">Ayuda</a>
+                        <a href="#footer">Contacto</a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <br>
+    <h1 id="Ofertas">Ofertas</h1>
+
+    <div class="noticias-container">
+        <div class="noticia">
+            <img src="../static/benelli-150.jpg" alt="Imagen 1">
+            <p>Benelli TNT 150</p>
+            <h2>$ 2.850.000</h2>
+            <button onclick="addToCart('Benelli TNT 150', 2850000)">Agregar al carrito</button>
+        </div>
+        <div class="noticia">
+            <img src="../static/duke-390.jpg" alt="Imagen 2">
+            <p>KTM Duke - 390 Naked</p>
+            <h2>$9.500.000</h2>
+            <button onclick="addToCart('Benelli TNT 150', 2850000)">Agregar al carrito</button>
+        </div>
+        <div class="noticia">
+            <img src="../static/tornado-300.jpg" alt="Imagen 3">
+            <p>Honda - 300 Tornado</p>
+            <h2>$ 9.600.000</h2>
+            <button onclick="addToCart('Benelli TNT 150', 2850000)">Agregar al carrito</button>
+        </div>
+        <div class="noticia">
+            <img src="../static/img3.png" alt="Imagen 3">
+            <p>Producto x</p>
+            <h2>Precio x</h2>
+            <P>Lugar x</P>
+        </div>
+        <div class="noticia">
+            <img src="../static/img3.png" alt="Imagen 3">
+            <p>Producto x</p>
+            <h2>Precio x</h2>
+            <P>Lugar x</P>
+        </div>
+        <div class="noticia">
+            <img src="../static/img3.png" alt="Imagen 3">
+            <p>Producto x</p>
+            <h2>Precio x</h2>
+            <P>Lugar x</P>
+        </div>
+    </div>
+
+
+    <br><br>
+    <footer class="footer">
+        <ul class="social-icon">
+            <li class="icon-elem">
+                <a href="https://www.youtube.com/" class="icon">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+            </li>
+            <li class="icon-elem">
+                <a href="https://www.instagram.com/" class="icon">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </li>
+            <li class="icon-elem">
+                <a href="https://web.whatsapp.com/" class="icon">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </li>
+            <li class="icon-elem">
+                <a href="https://www.facebook.com/" class="icon">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </li>
+            <li class="icon-elem">
+                <a href="https://www.google.com/intl/en-US/gmail/about/" class="icon">
+                    <i class="fa-regular fa-envelope"></i>
+                </a>
+            </li>
+        </ul>
+        <ul class="menu">
+            <li class="menu-elem">
+                <a href="" class="menu-icon"> Inicio </a>
+            </li>
+            <li class="menu-elem">
+                <a href="" class="menu-icon"> Equipo </a>
+            </li>
+            <li class="menu-elem">
+                <a href="" class="menu-icon"> Contacto </a>
+            </li>
+            <li class="menu-elem">
+                <a href="" class="menu-icon"> Video </a>
+            </li>
+            <li class="menu-elem">
+                <a href="" class="menu-icon"> Sobre Nosotros </a>
+            </li>
+        </ul>
+        <p class="text">2024 | Todos los derechos reservados</p>
+    </footer>
+
+</body>
+</html>

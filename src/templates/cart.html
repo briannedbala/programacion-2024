@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito de Compras</title>
+</head>
+<body>
+    <h1>Carrito de Compras</h1>
+    <ul>
+        {% for item in cart %}
+            <li>{{ item.name }} - ${{ item.price }}</li>
+        {% endfor %}
+    </ul>
+    <button onclick="navigateTo('/index')">Seguir Comprando</button>
+    <div class="">
+        <img src="{{ item.image }}" alt="{{ item.name }}">
+        <span>{{ item.name }}</span>
+        <span>${{ item.price }}</span>
+        <button onclick="removeFromCart({{ item.id }})" class="remove-from-cart">Eliminar</button>
+    </div>
+    
+</body>
+</html>
