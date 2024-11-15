@@ -96,12 +96,26 @@ def show_cart():
 def remove_from_cart(item_id):
     try:
         cart = session.get('cart', [])
-        updated_cart = [item for item in cart if str(item['id']) != str(item_id)]
+        updated_cart = [item for item in cart if str(
+            item['id']) != str(item_id)]
         session['cart'] = updated_cart
         session.modified = True
         return '', 204
     except Exception as e:
         return {'error': str(e)}, 500
+    
+@app.route('/process_payment', methods=['POST'])
+def process_payment():
+    try:
+        # Aquí podrías integrar con una API de pago (e.g., Stripe o PayPal)
+        session['cart'] = []  # Vaciar el carrito después del pago
+        session.modified = True
+        flash('¡Pago realizado con éxito!', 'success')
+        return redirect(url_for('show_cart'))
+    except Exception as e:
+        flash(f'Error al procesar el pago: {e}', 'danger')
+        return redirect(url_for('show_cart'))
+
 
 # @app.errorhandler(404)
 # def not_found(error):

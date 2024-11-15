@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mercado negro</title>
+    <title>Grœn</title>
     <link rel="stylesheet" href="../static/css/styles.css">
     <script src="https://kit.fontawesome.com/eb1f191a2d.js" crossorigin="anonymous"></script>
 
@@ -41,7 +41,7 @@
             <nav>
                 <ul class="nav-links">
                     <li class="title">
-                        <a href="">Mercado negro</a>
+                        <a href="">Grœnn</a>
                     </li>
                     <li class="icon-elem">
                         <a href="/login" class="icon">
@@ -61,39 +61,139 @@
             <section>
                 <ul>
                     <li>
-                        <a href="#Categorias">Categorias</a>
                         <a href="#Ofertas">Ofertas</a>
-                        <a href="#Ayuda">Ayuda</a>
-                        <a href="#footer">Contacto</a>
+                        <a href="#Tintos">Tintos</a>
+                        <a href="#Blancos">Blancos</a>
+                        <a href="#Rosados">Rosados</a>
                     </li>
                 </ul>
             </section>
         </div>
     </div>
 
-    <br>
+    <div>
+        <img src="../static/img-oferta.png" alt="" width="100%">
+    </div>
+
     <h1 id="Ofertas">Ofertas</h1>
+    <div class="noticias-container">
+        <div class="noticia">
+            <img src="../static/oferta-1.png" alt="Imagen 1" width="150" height="360">
+            <p>Finca Las Moras</p>
+            <p>Los Intocables   
+                Malbec</p>
+            <h2>$ 6.244,80</h2>
+            <button onclick="addToCart('Los Intocables Malbec', 6244.80, 1)">Agregar al carrito</button>
+        </div>
+        <div class="noticia">
+            <img src="../static/oferta-2.png" alt="Imagen 2" width="150" height="360">
+            <p>Mascota Vineyards        </p>
+            <p>La Mascota 750ml.
+                Cabernet Sauvignon</p>
+            <h2>$ 9.016,15</h2>
+            <button onclick="addToCart('Mascota Vineyards', 9016.15, 2)">Agregar al carrito</button>
+        </div>
+        <div class="noticia">
+            <img src="../static/oferta-3.png" alt="Imagen 3" >
+            <p>Trapiche</p>
+            <p>Fond de Cave Reserva
+                Malbec</p>
+            <h2>$ 7.513,35</h2>
+            <button onclick="addToCart('Honda - 300 Tornado', 7513.35, 3)">Agregar al carrito</button>
+        </div>
+    </div>
 
-    <div class="noticia">
-        <img src="../static/benelli-150.jpg" alt="Imagen 1">
-        <p>Benelli TNT 150</p>
-        <h2>$ 2.850.000</h2>
-        <button onclick="addToCart('Benelli TNT 150', 2850000, 1)">Agregar al carrito</button>
-    </div>
-    <div class="noticia">
-        <img src="../static/duke-390.jpg" alt="Imagen 2">
-        <p>KTM Duke - 390 Naked</p>
-        <h2>$9.500.000</h2>
-        <button onclick="addToCart('KTM Duke - 390 Naked', 9500000, 2)">Agregar al carrito</button>
-    </div>
-    <div class="noticia">
-        <img src="../static/tornado-300.jpg" alt="Imagen 3">
-        <p>Honda - 300 Tornado</p>
-        <h2>$ 9.600.000</h2>
-        <button onclick="addToCart('Honda - 300 Tornado', 9600000, 3)">Agregar al carrito</button>
-    </div>
-    
+    <h1 id="Tintos">Tintos</h1>
 
+    <div class="noticias-container">
+        <div class="noticia">
+            <img src="../static/tinto-1.png" alt="Imagen 1">
+            <p>Trapiche</p>
+            <p>Trapiche Tesoro + Bolsa Inter Miami
+            Malbec</p>
+            <h2>$ 10.877,96</h2>
+            <button onclick="addToCart('Trapiche Tesoro', 10877.96, 4)">Agregar al carrito</button>
+        </div>
+        <div class="noticia">
+            <img src="../static/tinto-2.png" alt="Imagen 2">
+            <p>Finca Las Mora</p>
+            <p>DADÁ #9 Caramel
+                Blend</p>
+            <h2>$ 5.192,95</h2>
+            <button onclick="addToCart('DADÁ #9 Caramel', 5192.95, 5)">Agregar al carrito</button>
+        </div>
+        <div class="noticia">
+            <img src="../static/tinto-3.png" alt="Imagen 3">
+            <p>Trapiche</p>
+            <p>Trapiche 140 Años
+                Malbec</p>
+            <h2>$ 112.318,00</h2>
+            <button onclick="addToCart('Trapiche 140 Años', 12.318, 6)">Agregar al carrito</button>
+        </div>
+    </div>
+
+    <h1 id="Blancos">Blancos</h1>
+    <div class="noticias-container">
+        <div class="noticia">
+            <img src="../static/blancos-1.png" alt="Imagen 1">
+            <p>Navarro Correas
+            </p>
+            <p>Alegoría
+                Chardonnay</p>
+            <h2>$ 11.792,40</h2>
+            <button onclick="addToCart('Alegoría Chardonnay', 11792.40, 7)">Agregar al carrito</button>
+        </div>
+        <div class="noticia">
+            <img src="../static/blancos-2.png" alt="Imagen 1">
+            <p>El Esteco
+            </p>
+            <p>Don David
+                Torrontés</p>
+            <h2>$ 5.504,85</h2>
+            <button onclick="addToCart('Alegoría Chardonnay', 5504.85, 7)">Agregar al carrito</button>
+        </div>
+        <div class="noticia">
+            <img src="../static/blancos-3.png" alt="Imagen 1">
+            <p>La Liga de Enólogos
+            </p>
+            <p>El Bautismo
+                Blend</p>
+            <h2>$ 4.420,50</h2>
+            <button onclick="addToCart('Alegoría Chardonnay', 4420.50, 7)">Agregar al carrito</button>
+        </div>
+    </div>
+
+    <h1 id="Rosados">Rosados</h1>
+    <div class="noticias-container">
+        <div class="noticia">
+            <img src="../static/rosado-1.png" alt="Imagen 1">
+            <p>Mascota Vineyards</p>
+            <p>La Mascota Rosé 750ml.
+                Rosado
+            </p>
+            <h2>$ 9.016,15</h2>
+            <button onclick="addToCart('Benelli TNT 150', 2850000, 1)">Agregar al carrito</button>
+        </div>
+        <div class="noticia">
+            <img src="../static/rosado-2.png" alt="Imagen 1">
+            <p>Trapiche</p>
+            <p>Puro Rosé
+                Rosado
+            </p>
+            <h2>$ 5.747,30</h2>
+            <button onclick="addToCart('Benelli TNT 150', 5747.30, 1)">Agregar al carrito</button>
+        </div>
+        <div class="noticia">
+            <img src="../static/rosado-3.png" alt="Imagen 1">
+            <p>Elementos</p>
+            <p>Elementos
+                Rosado
+            </p>
+            <h2>$ 4.601,25</h2>
+            <button onclick="addToCart('Benelli TNT 150', 2850000, 1)">Agregar al carrito</button>
+        </div>
+    </div>
+        
     <br><br>
     <footer class="footer">
         <ul class="social-icon">
@@ -113,7 +213,7 @@
                 </a>
             </li>
             <li class="icon-elem">
-                <a href="https://www.facebook.com/" class="icon">
+                <a href="https://www.facebook.com/profile.php?id=61568656835270&rdid=ELF1ytIOaZXe1Nxw&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fx9gCG22q6Gfx7JWx%2F" class="icon">
                     <i class="fa-brands fa-facebook"></i>
                 </a>
             </li>

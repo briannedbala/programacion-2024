@@ -120,21 +120,33 @@ body {
     transform: scale(1.1);
 }
 
+/* Contenedor general de las noticias */
 .noticias-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 5px;
+    display: flex; /* Habilita flexbox */
+    flex-wrap: wrap; /* Permite que las filas se ajusten si no caben más elementos */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    gap: 20px; /* Espacio entre las tarjetas */
+    padding: 20px; /* Espacio interno del contenedor */
 }
 
+/* Tarjetas individuales */
 .noticia {
     background-color: white;
     margin: 10px;
     padding: 20px;
-    width: 300px;
+    width: 300px; /* Ancho fijo para todas las tarjetas */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     text-align: center;
+    display: flex;
+    flex-direction: column; /* Organiza el contenido de la tarjeta en columna */
+    align-items: center; /* Centra los elementos dentro de la tarjeta */
+}
+
+.noticia img {
+    width: 150px;
+    height: 360px;
+    border-radius: 8px 8px 0 0;
 }
 
 .noticia img {
