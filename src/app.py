@@ -92,37 +92,16 @@ def show_cart():
     return render_template('cart.html', cart=cart_items)
 
 
-@app.route('/remove_from_cart/<int:product_id>', methods=['POST'])
-def remove_from_cart(product_id):
-    # Lógica para eliminar el producto del carrito
-    cart = session.get('cart', [])
-    cart = [item for item in cart if item['id'] != product_id]
-    session['cart'] = cart
-    return '', 204  # Respuesta exitosa sin contenido
-
-# @app.route('/crear_producto', methods=['GET', 'POST'])
-# def crear_producto():
-#     if request.method == 'POST':
-#         nombre = request.form['nombre']
-#         precio = request.form['precio']
-#         categoria = request.form['categoria']
-#         stock = request.form['stock']
-#         descripcion = request.form['descripcion']
-#         try:
-#             cur = db.connection.cursor()
-#             query = (
-#                 'INSERT INTO productos (nombre, precio, categoria, stock, descripcion) VALUES (%s, %s, %s, %s, %s)')
-#             cur.execute(query, (nombre, precio, categoria, stock, descripcion))
-#             db.connection.commit()
-#             cur.close()
-#         except Exception as e:
-#             flash(f'Error')
-#             db.connection.rollback()
-#     return render_template('create_product_form.html')
-
-# @app.route('/editar_producto')
-# def editar_producto():
-#     return render_template('edit_product_form.html')
+@app.route('/remove_from_cart/<item_id>', methods=['POST'])
+def remove_from_cart(item_id):
+    try:
+        cart = session.get('cart', [])
+        updated_cart = [item for item in cart if str(item['id']) != str(item_id)]
+        session['cart'] = updated_cart
+        session.modified = True
+        return '', 204
+    except Exception as e:
+        return {'error': str(e)}, 500
 
 # @app.errorhandler(404)
 # def not_found(error):
