@@ -58,7 +58,7 @@ def register():
             db.connection.commit()
             cur.close()
             flash('¡Registro exitoso! Por favor, inicia sesión.', 'success')
-            return redirect(url_for('login'))
+            return redirect(url_for('index'))
         except Exception as e:
             flash(f'Error al registrar: {e}', 'danger')
             db.connection.rollback()
@@ -87,23 +87,23 @@ def add_to_cart():
 
 
 @app.route('/cart')
-def show_cart():
-    cart_items = session.get('cart', [])
-    return render_template('cart.html', cart=cart_items)
+def cart():
+    # Recupera el carrito de la sesión
+    cart = session.get('cart', [])
+    return render_template('cart.html', cart=cart)
 
 
-@app.route('/remove_from_cart/<item_id>', methods=['POST'])
+@app.route('/remove_from_cart/<int:item_id>', methods=['POST'])
 def remove_from_cart(item_id):
-    try:
-        cart = session.get('cart', [])
-        updated_cart = [item for item in cart if str(
-            item['id']) != str(item_id)]
-        session['cart'] = updated_cart
-        session.modified = True
-        return '', 204
-    except Exception as e:
-        return {'error': str(e)}, 500
+    # Recupera el carrito de la sesión
+    cart = session.get('cart', [])
     
+    # Filtra el carrito para eliminar el producto con el id proporcionado
+    updated_cart = [item for item in cart if item['id'] != item_id]
+    session['cart'] = updated_cart  # Actualiza el carrito en la sesión
+    
+    return redirect(url_for('cart'))  # Redirige a la página del carrito
+
 @app.route('/process_payment', methods=['POST'])
 def process_payment():
     try:
@@ -114,7 +114,7 @@ def process_payment():
         return redirect(url_for('show_cart'))
     except Exception as e:
         flash(f'Error al procesar el pago: {e}', 'danger')
-        return redirect(url_for('show_cart'))
+        return redirect(url_for('show_cart'))    
 
 
 # @app.errorhandler(404)
